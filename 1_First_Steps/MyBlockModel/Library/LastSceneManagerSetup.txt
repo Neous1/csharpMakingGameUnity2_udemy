@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/car.unity
+- path: Assets/Street Scene.unity
   isLoaded: 1
   isActive: 1
