@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hacker : MonoBehaviour {
+    //Game State
+    int level;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization   
+    void Start ()
 	{
         ShowMainMenu();
 	}
@@ -25,9 +27,19 @@ public class Hacker : MonoBehaviour {
         {
             ShowMainMenu();
         }
+        else if (input == "1")
+        {
+            level = 1;
+            StartGame();
+        }
+        else if (input == "2")
+        {
+            level = 2;
+            StartGame();
+        }
         else if (input == "025")
         {
-            Terminal.WriteLine(@"Step into the realm, you're bound to get caught And from this worldly life you'll soon depart");
+            Terminal.WriteLine(@"Step into the realm, you're bound to get caught And from this worldly life you'll soon depart ~ The Roots");
         }
         else
         {
@@ -35,4 +47,8 @@ public class Hacker : MonoBehaviour {
         }
     }
 
+    private void StartGame()
+    {
+       Terminal.WriteLine("You've entered Level: " + level);
+    }
 }
