@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class Hacker : MonoBehaviour {
         Win
     }
     Screen currentScreen;
+    string password;
 
     // Use this for initialization   
     void Start ()
@@ -40,18 +42,25 @@ public class Hacker : MonoBehaviour {
         {
             RunMainMenu(input);
         }
+        else if (currentScreen == Screen.Password)
+        {
+            CheckPassword(input);
+        }
     }
+
 
     private void RunMainMenu(string input)
     {
         if (input == "1")
         {
             level = 1;
+            password = "donkey";
             StartGame();
         }
         else if (input == "2")
         {
             level = 2;
+            password = "combobulate";
             StartGame();
         }
         else if (input == "025")
@@ -67,7 +76,21 @@ public class Hacker : MonoBehaviour {
     private void StartGame()
     {
         currentScreen = Screen.Password;
-       Terminal.WriteLine("You've entered Level: " + level);
+        Terminal.WriteLine("You've entered Level: " + level);
         Terminal.WriteLine("Please enter your passwrord");
+
+    }
+
+
+    void CheckPassword(string input)
+    {
+        if (input == password)
+        {
+            Terminal.WriteLine("Well Done");
+        }
+        else
+        {
+            Terminal.WriteLine("Sorry, wrong password");
+        }
     }
 }
