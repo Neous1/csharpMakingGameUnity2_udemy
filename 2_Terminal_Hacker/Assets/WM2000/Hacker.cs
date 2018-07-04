@@ -102,11 +102,42 @@ public class Hacker : MonoBehaviour {
     {
         if (input == password)
         {
-            Terminal.WriteLine("Well Done");
+            DisplayWinScreen();
         }
         else
         {
             Terminal.WriteLine("Sorry, wrong password");
         }
+    }
+
+    void DisplayWinScreen()
+    {
+        currentScreen = Screen.Win;
+        Terminal.ClearScreen();
+        ShowLevelReward();
+    }
+
+    void ShowLevelReward()
+    {
+        switch (level)
+        {
+            case 1:
+                Terminal.WriteLine("Have a book ...");
+                Terminal.WriteLine(@"
+      _______________
+     /              //
+    /              //
+   /              //
+  /              //
+ /_____________ //
+(______________(/
+"                                 );
+
+                break;
+            case 2:
+
+                break;
+        }
+
     }
 }
