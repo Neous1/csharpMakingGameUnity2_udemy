@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour {
     //Game configuration
-    private string[] level1Passwords = { "Dog", "Cat", "And", "Hat","Fly"};
-    private string[] level2Passwords = { "Table", "Space", "Ghost", "Index", "Frame"};
+    private string menuHint = "You may type menu at any time.";
+    string[] level1Passwords = { "Dog", "Cat", "And", "Hat","Fly"};
+    string[] level2Passwords = { "Table", "Space", "Ghost", "Index", "Frame"};
 
     //Game State
     int level;
@@ -65,7 +66,7 @@ public class Hacker : MonoBehaviour {
         if (isValidLevelNumber)
         {
             level = int.Parse(input);
-            StartGame();
+            AskForPassword();
         }
         else if (input == "025")
         {
@@ -73,30 +74,41 @@ public class Hacker : MonoBehaviour {
         }
         else
         {
-            Terminal.WriteLine("Please choose a valid selection");
+            Terminal.WriteLine("Please choose a valid level");
+            Terminal.WriteLine(" ");
+            Terminal.WriteLine(menuHint);
         }
     }
 
-    private void StartGame()
+    private void AskForPassword()
     {
         currentScreen = Screen.Password;
         Terminal.ClearScreen();
+        SetRandomPassword();
+        Terminal.WriteLine("Enter your passwrord Hint: " + password.Anagram());
+        Terminal.WriteLine(" ");
+        Terminal.WriteLine(menuHint);
+
+
+    }
+
+    private void SetRandomPassword()
+    {
         switch (level)
         {
-            case 1:;
+            case 1:
+                ;
                 password = level1Passwords[Random.Range(0, level1Passwords.Length)];
                 break;
-            case 2:;
+            case 2:
+                ;
                 password = level2Passwords[Random.Range(0, level2Passwords.Length)];
                 break;
             default:
                 Debug.LogError("Level undefined");
                 break;
         }
-        Terminal.WriteLine("Please enter your passwrord");
-
     }
-
 
     void CheckPassword(string input)
     {
@@ -106,7 +118,7 @@ public class Hacker : MonoBehaviour {
         }
         else
         {
-            Terminal.WriteLine("Sorry, wrong password");
+            AskForPassword();
         }
     }
 
@@ -115,6 +127,8 @@ public class Hacker : MonoBehaviour {
         currentScreen = Screen.Win;
         Terminal.ClearScreen();
         ShowLevelReward();
+        Terminal.WriteLine(menuHint);
+
     }
 
     void ShowLevelReward()
