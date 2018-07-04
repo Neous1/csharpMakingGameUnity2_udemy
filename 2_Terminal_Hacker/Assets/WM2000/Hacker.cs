@@ -124,17 +124,24 @@ public class Hacker : MonoBehaviour {
             case 1:
                 Terminal.WriteLine("Have a book ...");
                 Terminal.WriteLine(@"
-      _______________
-     /              //
-    /              //
-   /              //
-  /              //
- /_____________ //
-(______________(/
+      _____________
+     /            //
+    /            //
+   /            //
+  /            //
+ /___________ //
+(____________(/
 "                                 );
 
                 break;
             case 2:
+                Terminal.WriteLine("Have a key ...");
+                Terminal.WriteLine(@"
+ __
+/0 \_______
+\__/-=' = '
+
+"                         );
 
                 break;
         }
