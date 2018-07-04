@@ -1,9 +1,13 @@
-﻿using System;
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hacker : MonoBehaviour {
+    //Game configuration
+    private string[] level1Passwords = { "Dog", "Cat", "And", "Hat","Fly"};
+    private string[] level2Passwords = { "Table", "Space", "Ghost", "Index", "Frame"};
+
     //Game State
     int level;
 
@@ -21,6 +25,12 @@ public class Hacker : MonoBehaviour {
 	{
         ShowMainMenu();
 	}
+
+    void Update()
+    {
+        int index = Random.Range(0, level1Passwords.Length);
+        print(index);
+    }
 
     void ShowMainMenu()
     {
@@ -51,16 +61,10 @@ public class Hacker : MonoBehaviour {
 
     private void RunMainMenu(string input)
     {
-        if (input == "1")
+        bool isValidLevelNumber = (input == "1" || input =="2");
+        if (isValidLevelNumber)
         {
-            level = 1;
-            password = "donkey";
-            StartGame();
-        }
-        else if (input == "2")
-        {
-            level = 2;
-            password = "combobulate";
+            level = int.Parse(input);
             StartGame();
         }
         else if (input == "025")
@@ -76,7 +80,19 @@ public class Hacker : MonoBehaviour {
     private void StartGame()
     {
         currentScreen = Screen.Password;
-        Terminal.WriteLine("You've entered Level: " + level);
+        Terminal.ClearScreen();
+        switch (level)
+        {
+            case 1:;
+                password = level1Passwords[Random.Range(0, level1Passwords.Length)];
+                break;
+            case 2:;
+                password = level2Passwords[Random.Range(0, level2Passwords.Length)];
+                break;
+            default:
+                Debug.LogError("Level undefined");
+                break;
+        }
         Terminal.WriteLine("Please enter your passwrord");
 
     }
