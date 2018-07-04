@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour {
     //Game configuration
-    private string menuHint = "You may type menu at any time.";
+    const string menuHint = "You may type menu at any time.";
     string[] level1Passwords = { "Dog", "Cat", "And", "Hat","Fly"};
     string[] level2Passwords = { "Table", "Space", "Ghost", "Index", "Frame"};
-
+    string[] level3Passwords = { "Random", "Magna", "Tower", "Believe", "Cartoon" };
+    
     //Game State
     int level;
 
@@ -38,8 +39,9 @@ public class Hacker : MonoBehaviour {
         currentScreen = Screen.MainMenu;
         Terminal.ClearScreen();
         Terminal.WriteLine("What would you like to hack into?");
-        Terminal.WriteLine("Press 1 for the local library");
-        Terminal.WriteLine("Press 2 for the Police Station");
+        Terminal.WriteLine("Press 1 for 3-Letters words");
+        Terminal.WriteLine("Press 2 for 4-Letters words");
+        Terminal.WriteLine("Press 3 for 5-Letters words");
         Terminal.WriteLine("Enter you Selection: ");
     }
 
@@ -48,6 +50,11 @@ public class Hacker : MonoBehaviour {
         if (input == "menu")
         {
             ShowMainMenu();
+        }
+        else if (input == "quit" || input == "close" || input == "exit")
+        {
+            Application.Quit();
+            Terminal.WriteLine("if you're on the browser close tab");
         }
         else if (currentScreen == Screen.MainMenu)
         {
@@ -62,7 +69,7 @@ public class Hacker : MonoBehaviour {
 
     private void RunMainMenu(string input)
     {
-        bool isValidLevelNumber = (input == "1" || input =="2");
+        bool isValidLevelNumber = (input == "1" || input =="2" || input == "3");
         if (isValidLevelNumber)
         {
             level = int.Parse(input);
@@ -104,6 +111,10 @@ public class Hacker : MonoBehaviour {
                 ;
                 password = level2Passwords[Random.Range(0, level2Passwords.Length)];
                 break;
+            case 3:
+                ;
+                password = level3Passwords[Random.Range(0, level3Passwords.Length)];
+                break;
             default:
                 Debug.LogError("Level undefined");
                 break;
@@ -138,25 +149,49 @@ public class Hacker : MonoBehaviour {
             case 1:
                 Terminal.WriteLine("Have a book ...");
                 Terminal.WriteLine(@"
-      _____________
-     /            //
-    /            //
-   /            //
-  /            //
- /___________ //
-(____________(/
-"                                 );
-
+     _ _
+ .-. | | |
+ |M|_|A|N|
+ |A|a|.|.|<\
+ |T|r| | | \\
+ |H|t|M|Z|  \\      
+ | | !| | |  \> 
+""""""""""""""""""
+"                                );
                 break;
             case 2:
                 Terminal.WriteLine("Have a key ...");
+                Terminal.WriteLine("Play again for a greater challenge.");
                 Terminal.WriteLine(@"
- __
-/0 \_______
-\__/-=' = '
+
+               .--.
+              /.-. '----------.
+              \'-' .--'--''-'-'
+               '--'
+"                         );
+
+                break;
+            case 3:
+                Terminal.WriteLine("Have a laptop ...");
+                Terminal.WriteLine(@"
+
+   .________________.
+   |.--------------.|
+   ||  -._ .-.     ||
+   ||  -._| | |    ||
+   ||  -._|'|'|    ||
+   ||______________||
+  /.-.-.-.-.-.-.-.-.\
+ /.-.-.-.-.-.-.-.-.-.\
+/____/__________\___o_\ 
+\_____________________/
 
 "                         );
 
+
+                break;
+            default:
+                Debug.LogError("Not a good place to be !");
                 break;
         }
 
