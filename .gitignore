@@ -4,6 +4,7 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+1_First_Steps/MyBlockModel/Library/
 
 # Visual Studio cache directory
 .vs/

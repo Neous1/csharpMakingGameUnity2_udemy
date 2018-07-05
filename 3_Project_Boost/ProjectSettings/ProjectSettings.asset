@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 8c47cc78946558b4fb585b598947f810
+  productGUID: 6a0717b5f12ccfd4e9ca25f61cfd4f2e
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -12,7 +12,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: 3_Project_Boost
+  productName: 3_Project_boost
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -557,14 +557,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: 3_Project_Boost
+  metroPackageName: 3_Project_boost
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: 3_Project_Boost
+  metroApplicationDescription: 3_Project_boost
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -633,8 +633,8 @@ PlayerSettings:
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 083c741c-3486-44fb-a054-9ee8ef8f0475
-  projectName: 3_Project_Boost
+  cloudProjectId: 186eae70-992e-4791-8b0a-c83bc8ac1745
+  projectName: 3_Project_boost
   organizationId: neous1
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
