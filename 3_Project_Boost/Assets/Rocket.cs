@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour {
-//    char KeyCode
+    
+    Rigidbody rigidbody;
     // Use this for initialization
-    void Start () {
-		
-	}
+    void Start ()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -19,15 +21,15 @@ public class Rocket : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            print("Thrust");
+            rigidbody.AddRelativeForce(Vector3.up);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            print("Rotating Left");
+            transform.Rotate(Vector3.forward);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            print("Rotating Right");
+            transform.Rotate(-Vector3.forward);
         }
 
     }
